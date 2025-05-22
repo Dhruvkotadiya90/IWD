@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Login Page</title>
+
+    <?php
+    include 'db.php';
+    ?>
+
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-box register">
+                <h2>Register</h2>
+                    <form action="db.php" method="POST">
+                    <div class="input-group">
+                        <label for="register-name">Name</label>
+                        <input type="text" name="user" id="register-name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" name="email" id="register-email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" name="pass" id="register-password" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" name="pass" id="register-password" required>
+                    </div>
+                    <button type="submit"  name="sub" onclick="document.location='login.html'">Register</button>
+                    <p class="toggle-form">Already have an account? <span id="show-login">Login</span></p>
+                </form>
+            </div>
+            <form action="db.php" method="POST">
+            <div class="form-box login">
+                <h2>Login</h2>
+                    <div class="input-group">
+                        <label for="login-name">Name</label>
+                        <input type="name" name="user" id="login-name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" name="email" id="login-email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" name="pass" id="login-password" required>
+                    </div>
+                    <button type="submit" name="sub" onclick="document.location='login.html'">Login</button>
+                    <p class="toggle-form">Don't have an account? <span id="show-register">Register</span></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const loginBox = document.querySelector('.login');
+        const registerBox = document.querySelector('.register');
+        const showRegister = document.getElementById('show-register');
+        const showLogin = document.getElementById('show-login');
+
+        registerBox.style.display = 'block'; // Show register box by default
+        loginBox.style.display = 'none'; // Hide login box by default
+
+        showRegister.addEventListener('click', () => {
+            document.location='login.html';
+            registerBox.style.display = 'block';
+            loginBox.style.display = 'none';
+        });
+
+        showLogin.addEventListener('click', () => {
+            document.location='login.html';
+            loginBox.style.display = 'block';
+            registerBox.style.display = 'none';
+        });
+
+    </script>
+
+</body>
+</html>
